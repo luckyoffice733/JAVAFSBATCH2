@@ -1,0 +1,90 @@
+// You are using Java
+class Main{
+    
+    public static void main(String args[]){
+        
+        String s1 = new String("hello");//using new operator
+        
+        String s2="world"; //string literal
+        
+        System.out.println("before change : "+s1);
+        
+        s1=s1.concat(" welcome");
+        
+        System.out.println("after change : "+s1);
+        
+        
+        String s3= new String("hi");
+        String s4="hi";
+        String s5= new String("hi");
+        
+        System.out.println(s3==s5);//false//=== operator will compare the address(hashCode) not the EnumConstantNotPresentException
+        
+        System.out.println(s3.equals(s5));// equals/equalsIngnoreCase to compare the content in the String
+        
+        String s6="hi";
+        
+        System.out.println(s4==s6);//true
+        
+        
+    }
+    
+}
+=======================================
+// You are using Java
+class Main{
+    
+    public static void main(String args[]){
+                        //index 0123456789 
+        String s1 = new String("helloWorld");
+        
+        //getting the data based on index position we can go for char charAt();
+       char ch= s1.charAt(5);
+       System.out.println("index position at 5 the character : "+ch);
+       
+       //char[] toCharArray() => to convert the String into Char array.
+        System.out.println("converted string into char array");
+      char ch1[]= s1.toCharArray();
+      for(char c:ch1){
+          System.out.print(c+" ");
+      }
+      System.out.println("");
+      
+      String s2 = "heLLo World";
+      System.out.println("Upper Case : "+s2.toUpperCase());
+      System.out.println("Lower Case : "+s2.toLowerCase());
+      
+      //String substring(startindex,endIndex) //Note: endIndex ->excluded
+      String s3 ="today is the beautiful day";
+      
+     String extractedString= s3.substring(13,22);
+     System.out.println("substring from the range 13 to 22: "+extractedString);
+     //to remove the spaces from the bothe leading and trailing spaces
+     // String trim();
+     
+     String s4 ="   helloWorld   ";
+     System.out.println("before trim: "+s4);
+     
+     System.out.println("after trim: "+s4.trim());
+     // String[] split();
+     String line ="bigdata the data is which unable to store and unable to process";
+     
+     String spt[]=line.split(" ");
+     System.out.println(spt[7]);
+     
+     System.out.println("Convert the lines into words");
+     for(String s:spt){
+        System.out.println(s); 
+     }
+     
+     
+     
+     
+      
+      
+        
+}
+    
+    
+    
+}
