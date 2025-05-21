@@ -218,3 +218,11 @@ class Main{
       }
     
 }
+==================
+
+
+
+Regular Expression For Password:
+================================
+  // Regular expression
+        String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[^\\w\\s])[^\\s]{9,14}$";
