@@ -143,3 +143,78 @@ class Main{
 
 
 }
+
+
+================
+StringBuilder:
+==============
+class Main{
+    
+    public static void main(String args[]){
+     
+       StringBuilder sb = new StringBuilder("ramu");
+       
+      System.out.println(sb);
+     sb.append(" ");
+     sb.append("smith");
+        sb.append(" ");
+     sb.append("martin");
+        sb.append(" ");
+     sb.append("john doe");
+        sb.append(" ");
+     sb.append("Riya");
+     
+   System.out.println(sb);
+   
+   //ramu smith martin john doe Riya
+   
+      sb.insert(10," scott ");
+      
+       System.out.println("after insert at index position: "+sb);
+        
+    }
+    
+    
+    
+}
+=========================
+
+// You are using Java
+//patterns
+//[a-z] -- it will accept only one character at a time from a to z
+//[A-Z] -->it will represent only one character at a time from A to z
+//[0-9] or \\d it will accept any number 0 to 9
+
+//quantifers:
+//=============
+//  +  --> alteast one time occurance of pattern and many time
+//  *  --> zero or many time occurance of pattern
+//  ?  ->  zero or one time  occurance a pattern
+//  {n} -> number of occurance of pattern 
+//   \\s -> single space
+// {min,max} -> min and max no.of occurance of pattern
+
+//write a regular expression pattern  to valid the mobileNO
+// string regex = "[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]";
+   //or String regex = "[0-9]{10}"
+   //to check user input with regexpattern matched or not  we need use boolean matches(regex);
+
+import java.util.*;
+class Main{
+    
+      public static void main(String args[]){
+          Scanner sc = new Scanner(System.in);
+          String mbno=sc.next();
+          String regex="[0-9]{10}";
+          
+         boolean b = mbno.matches(regex);
+         
+         if(b){
+             System.out.println("MobileNumber is Valid");
+         }else {
+             System.out.println("MobileNumber is not valid");
+         }
+          
+      }
+    
+}
