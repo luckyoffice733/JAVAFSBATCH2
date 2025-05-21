@@ -77,14 +77,69 @@ class Main{
         System.out.println(s); 
      }
      
-     
-     
-     
-      
-      
-        
+    
+        }    
+    
+    
 }
+
+=============================
+// You are using Java
+
+class Main{
+    
+    public static void main(String args[]){
+        
+        String s1=new String("hello world");
+        //replace a character.
+        
+        System.out.println("replace at character o to d : "+s1.replace('o','d'));
+        
+        String s2="hello  world  welcome  ravi";
+        
+        System.out.println("After replace a line : "+s2.replace("  "," "));
+            
+        
+        String s3="welcome";
+        
+        System.out.println(s3.replace('e','d'));//wdlcomd
+    
+        
+       String s="welcome";
+       StringBuilder sb = new StringBuilder(s);//convert string to StringBuilder Object
+       
+       String rev= sb.reverse().toString(); //convert StringBuilder to  String object
+        System.out.println("Reverse string is : "+rev);
+        
+        
+    String s4="Helloword";
+    System.out.println("length of the string : "+s4.length()); //9
+    
+    String reverseString="";
+    String word="";
+
+    for(int i=s4.length()-1;i>=0;i--){
+             word=word+s4.charAt(i);
+    }
+    System.out.println("reverse string of helloworld : "+word);
+    
+    String st = "Hello world welcome"; //reverse line of words => olleh dlrow emoclew
+    String st1[] = st.split(" ");
+    
+    for(int i=0;i<st1.length;i++){
+        word=st1[i];
+        String reverseWord="";
+      for(int j=word.length()-1;j>=0;j--){
+             reverseWord=reverseWord+word.charAt(j);
+       }
+       reverseString=reverseString+reverseWord+" ";
+    }
+    System.out.println("reverse of an line of words");
+    System.out.println(reverseString);
     
     
     
+        }
+
+
 }
