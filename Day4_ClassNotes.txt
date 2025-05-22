@@ -95,6 +95,77 @@ class Main{
     
 }
 
+============================
+
+session3:
+=========
+1:
+---
+// You are using Java
+import java.util.Scanner;
+class Person{
+    private String firstName;
+     private String lastName;
+    
+    Person(String firstName,String lastName){
+        this.firstName=firstName;
+        this.lastName=lastName;
+    }
+    
+    public void setFirstName(String firstName){
+        this.firstName=firstName;
+    }
+    public String getFirstName(){
+       return this.firstName;
+    }    
+    
+     public void setLastName(String lastName){
+        this.lastName=lastName;
+    }
+    public String getLastName(){
+       return this.lastName;
+    }    
+}
+class Employee extends Person{
+     private int employeeId;
+     private String jobTitle;
+     
+     Employee(int employeeId,String jobTitle,String firstName,String lastName){
+        super(firstName,lastName);
+        this.employeeId=employeeId;
+        this.jobTitle=jobTitle;
+     }
+     
+     public void setEmployeeId(int employeeId){
+         this.employeeId=employeeId;
+     }
+     public int getEmployeeId(){
+         return this.employeeId;
+     }
+     public void setJobTitle(String jobTitle){
+         this.jobTitle=jobTitle;
+     }
+     public String getJobTitle(){
+         return this.jobTitle;
+     }
+}
+class Main{
+    public static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
+        String fname = sc.nextLine();
+        String lname = sc.nextLine();
+        int empId =sc.nextInt();
+        sc.nextLine();
+        String  jbTitle = sc.nextLine();
+        Employee eobj = new Employee(empId,jbTitle,fname,lname);
+        System.out.println("Employee details:");
+        System.out.println("Name: "+eobj.getFirstName()+" "+eobj.getLastName()+", "+eobj.getJobTitle());
+        System.out.println("Employee ID: "+eobj.getEmployeeId());    
+    }
+}
+
+
+
 
 
 
