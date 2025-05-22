@@ -1,0 +1,54 @@
+// public int addition(int a,int b){
+// }
+// // addition(int,int)  --> methodSignature 
+// public String getMessage(String a,float b){
+// }
+// //getMessage(String,float); -->methodSignature;
+
+
+class Test{
+    public void addition(int x,int y){
+        int z = x+y;
+        System.out.println("sum of two numbers(int) is : "+z);
+    }
+    public void addition(int x,int y,int z){//difference no.of parameters
+        int c = x+y+z;
+        System.out.println("sum of three of (int)numbers is : "+c);
+    }
+    
+    public void addition(float x,float y){//difference in the type of parameter
+        float c = x+y;
+        System.out.println("sum of two numbers(float) is : "+c);
+    }
+    
+    public double addition(double x,double y){
+        System.out.println("we are in the double type overload method");
+        return x+y;
+    }
+    
+    public void methodOne(int s){
+        System.out.println("we are in methodOne(int) "+s);
+    }
+
+}
+class Main{
+    public static void main(String args[]){
+        
+        Test tobj = new Test();
+        tobj.addition(10,40);//addition(int,int);
+        tobj.addition(10.0f,40.0F);//addition(float,float);
+        
+        tobj.methodOne('d');//methodOne(char);-->type promotion -> methodOne(int)->methodOne(float)
+                              ///methodOne(double);
+        
+    }
+    
+}
+
+
+
+
+
+
+
+
