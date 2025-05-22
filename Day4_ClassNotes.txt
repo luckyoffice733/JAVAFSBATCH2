@@ -45,7 +45,55 @@ class Main{
     
 }
 
+=====================================
+// You are using Java
+class Person{
+    public void methodOne(){
+        System.out.println("we are in parent class methodOne");
+    }
+}
+class Employee extends Person{
+    
+    public void methodTwo(){
+        System.out.println("we are in Employee child class: ");
+    }
+    
+}
+class Main{
+    
+    public static void main(String args[]){
+        Employee e = new Employee();
+        e.methodTwo();
+        e.methodOne();
+    }
+    
+}
 
+====
+2nd example using super keyword:
+================================
+// You are using Java
+class Person{
+    public void methodOne(){
+        System.out.println("we are in parent class methodOne");
+    }
+}
+class Employee extends Person{
+    
+    public void methodTwo(){
+        System.out.println("we are in Employee child class: ");
+    }
+    
+}
+class Main{
+    
+    public static void main(String args[]){
+        Employee e = new Employee();
+        e.methodTwo();
+        e.methodOne();
+    }
+    
+}
 
 
 
