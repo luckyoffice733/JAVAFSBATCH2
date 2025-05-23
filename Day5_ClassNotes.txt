@@ -1,0 +1,93 @@
+class Parent{
+    public void methodOne(){
+        System.out.println("we are in methodOne of  Parent class");
+    }
+    public void display(){
+        System.out.println("we are i display method of  Parent class");
+    }
+    
+    public static void greet(){
+        System.out.println("we are in static method Of Parent ");
+    }
+    
+    void methodThree(){
+         System.out.println("we are in  methodThree of  Parent class");
+    }
+    
+    public Object sayHello(){
+        return "hello from parent";
+    }
+}
+class Child extends Parent{
+     public void methodTwo(){
+        System.out.println("we are in methodTwo  of  Child class");
+    }
+     @Override
+    public void methodOne(){//override method
+        System.out.println("we are in method One of child class overriden of Parent");
+        super.methodOne();
+    }
+    @Override
+    protected void methodThree(){
+         System.out.println("we are in methodThree of Child Class overriden of Parent");
+    }
+    @Override
+    public String sayHello(){//co-variant return type in methodOverriding. from Super class to subclass
+        return "Hello From the Child";
+        
+    }
+    
+    @Override
+    public static void greet(){
+        System.out.println("we are in static method Of Child class from Parent ");
+    }
+    
+    
+
+   public static void main(String args[]){
+        Child cobj = new Child();
+        
+       cobj.methodTwo();
+       cobj.methodOne();
+       cobj.methodThree();
+       String msg =cobj.sayHello();
+
+      System.out.println(msg);
+      
+      //super.methodOne(); invalid
+       
+}
+}
+==========================
+
+class Parent{
+    public void methodOne(){
+        System.out.println("we are in methodOne of  Parent class");
+    }
+    public void display(){
+        System.out.println("we are i display method of  Parent class");
+    }
+}
+class Child extends Parent{
+     public void methodTwo(){
+        System.out.println("we are in methodTwo  of  Child class");
+    }
+     @Override
+    public void methodOne(){//override method
+        System.out.println("we are in method One of child class overriden of Parent");
+    }
+    public static void main(String args[]){
+        // Child  cobj = new Child(); // cobj.methodOne();
+        //super class reference varaible holding its child class Object
+        //execution first check the method reference in parent then it will be overriden in 
+        //child class then child class method executed ,if reference not exist in Parent
+        //then it will throw the exception.
+        Parent pobj = new Child(); //polymorphism 
+        pobj.methodOne();
+        //pobj.methodTwo();
+        pobj.display();
+    }
+   
+}
+    
+  
