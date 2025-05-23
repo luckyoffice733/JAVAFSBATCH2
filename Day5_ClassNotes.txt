@@ -90,4 +90,55 @@ class Child extends Parent{
    
 }
     
-  
+
+session1:
+===========
+1)
+import java.util.Scanner;
+
+class Customer{
+    int amountSpent;
+    Customer(int amountSpent){
+        this.amountSpent=amountSpent;
+    }
+    
+    public int calculateLoyaltyPoints(){
+        return  this.amountSpent/10;
+    }
+}
+
+class PremiumCustomer extends Customer{
+    int amountSpent;
+    PremiumCustomer(int amountSpent){
+        super(amountSpent);
+        this.amountSpent=amountSpent;
+    }
+    
+    public int calculateLoyaltyPoints(){
+        return 2*(this.amountSpent/10);
+    }
+    
+}
+
+class Main{
+    
+    public static void main(String args[]){
+        Scanner sc= new Scanner(System.in);
+        
+        int amount=sc.nextInt();
+        String cType = sc.next();
+         
+         Customer cobj=null;  
+      
+        if(cType.equals("yes")){
+            cobj = new PremiumCustomer(amount);
+            int res = cobj.calculateLoyaltyPoints(amount);
+            System.out.println(res);
+        }else{
+            cobj = new Customer(amount);
+            int res1 = cobj.calculateLoyaltyPoints(amount);
+            System.out.println(res1);
+        }
+        
+    }
+}
