@@ -142,3 +142,174 @@ class Main{
         
     }
 }
+============================================
+// You are using Java
+class First{
+    First(int x){ //default constructor
+        System.out.println("We are  in default construtor of Frist Class");
+    }
+}
+class Second extends First{
+    Second(){
+        //by dfault child class constructor implicity  we have code  to call
+        //parent class default constructor//super() --->First()
+        super(10) //First(int)
+        System.out.println("we are in default constructor of Second class(child)");
+    }
+}
+class Main{
+    public static void main (String args[]){
+        Second sobj = new Second();
+    }
+}
+
+
+abstraction:
+==============
+abstract class First{//for abstract class we cannot create the object 
+    
+    public void methodOne(){
+        System.out.println("we are methodOne");
+    }
+    
+    //abstract method will be implemented in the child class by Override it.
+    public abstract void methodTwo();
+}
+
+class Test extends First{
+    @Override
+    public void methodTwo(){
+        System.out.println("we are in test class implmented abstract method");
+    }
+    
+    public static void main(String args[]){
+        Test fobj = new Test();
+        fobj.methodOne();
+        fobj.methodTwo();
+        
+        First f1 = new Test();
+        f1.methodOne();
+        f1.methodTwo();
+        
+        
+    }
+}
+
+
+
+session2:
+=========
+import java.util.Scanner;
+abstract class MatrixOperation {
+// You are using Java
+public abstract int[][] performOperation(int[][] m1,int[][]m2);
+    
+}
+
+class MatrixAddition extends MatrixOperation{
+    @Override
+    public int[][] performOperation(int[][] m1,int[][]m2)
+   {
+     int newArray[][] = new int[m1.length][m2.length];
+     
+     for (int i=0;i<m1.length;i++){
+         for(int j=0;j<m2.length;j++){
+             newArray[i][j]= m1[i][j] + m2[i][j];
+         }
+     }
+      
+      return newArray; 
+   }
+}
+class Main{
+    
+    public static void inputMatrix(int[][] mtr1,Scanner sc){
+        
+        for(int i=0;i<mtr1.length;i++){
+            for(int  j=0;j<mtr1.length;j++){
+              
+              mtr1[i][j]=sc.nextInt();   
+                
+            }
+        }
+    }
+    public static void displayMatrix(int[][] mtr1){
+        
+        for(int i=0;i<mtr1.length;i++){
+            for(int  j=0;j<mtr1.length;j++){
+              
+             System.out.print(mtr1[i][j]);  
+                
+            }
+            System.out.println();
+        }
+        
+    }
+    
+
+     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[][] matrix1 = new int[n][n];
+        int[][] matrix2 = new int[n][n];
+        inputMatrix(matrix1, scanner);
+        inputMatrix(matrix2, scanner);
+
+        MatrixOperation addition = new MatrixAddition();
+        int[][] resultAddition = addition.performOperation(matrix1, matrix2);
+
+        displayMatrix(resultAddition);
+
+        scanner.close();
+    }
+}
+
+===============
+interfaces:
+===========
+interface Payment{
+    public abstract void paymentProcess(double amount);
+}
+
+class CreditCardPayment implements Payment{
+    
+    @Override
+    public void paymentProcess(double amount){
+        System.out.println(amount +"paid using the CreditCardP");
+    }
+}
+
+class PhonePay implements Payment{
+    @Override
+    public void paymentProcess(double amount){
+        System.out.println(amount+" apid using the phonePay UPI");
+    }
+    
+}
+
+class Main{
+    
+    public static void main(String args[]){
+        System.out.println("First way object creation");
+       PhonePay py = new PhonePay();
+       py.paymentProcess(40000);
+       
+       CreditCardPayment ccp = new CreditCardPayment();
+       ccp.paymentProcess(10000);
+        System.out.println("Second way object creation");
+       //interface reference variables holding its implementation class Object
+       //Interface refr = new ClassName();
+       Payment  p = new PhonePay();
+       p.paymentProcess(50000);
+       
+       Payment  p2= new CreditCardPayment();
+       p2.paymentProcess(30000);
+       
+       
+        
+    } 
+
+}
+
+
+
