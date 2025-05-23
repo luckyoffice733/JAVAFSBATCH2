@@ -421,3 +421,88 @@ class C extends B implements A{
 }
 
 
+==================
+
+
+Session:3:
+==========
+// You are using Java
+import java.util.Scanner;
+
+// Interface declaration
+interface Growing {
+    boolean isGrowing();
+}
+
+// Class to check growing number
+class GrowingNumber implements Growing {
+    private int number;
+
+    public GrowingNumber(int number) {
+        this.number = number;
+    }
+
+    @Override
+    public boolean isGrowing() {
+        int prevDigit = 10; // Greater than any digit
+
+        while (number > 0) {
+            int currentDigit = number % 10;
+            number /= 10;
+
+            if (currentDigit >= prevDigit) {
+                return false;
+            }
+            prevDigit = currentDigit;
+        }
+
+        return true;
+    }
+}
+
+
+class GrowingString implements Growing {
+    private String str;
+
+    public GrowingString(String str) {
+        this.str = str.toUpperCase(); 
+    }
+
+    @Override
+    public boolean isGrowing() {
+        for (int i = 1; i < str.length(); i++) {
+            if (str.charAt(i) <= str.charAt(i - 1)) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Read input
+       // String[] input = scanner.nextLine().split(" ");
+
+        int number = sc.nextInt();
+        String word = sc.next();
+
+
+        // Check growing number
+        GrowingNumber gn = new GrowingNumber(number);
+        if (gn.isGrowing()) {
+            System.out.println("Growing number");
+        } else {
+            System.out.println("Not growing number");
+        }
+
+        GrowingString gs = new GrowingString(word);
+        if (gs.isGrowing()) {
+            System.out.println("Growing string");
+        } else {
+            System.out.println("Not growing string");
+        }
+    }
+}
