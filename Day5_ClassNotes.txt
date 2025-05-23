@@ -311,5 +311,113 @@ class Main{
 
 }
 
+2)
+interface First{
+    public abstract void methodOne();
+    public abstract String getMessage();
+}
+
+interface Second{
+    public abstract void methodTwo();
+    public abstract String sayHello();
+
+}
+//multiple inheritance -> we can acheive by implementing multiple interfaces in java.
+class Test implements First,Second{
+    @Override
+    public void methodOne(){
+        System.out.println("we are in methodOne");
+    }
+    
+    @Override
+    public String getMessage(){
+        return "working with interfaces";
+    }
+    
+    @Override
+    public void methodTwo(){
+        System.out.println("we are in the methodTwo");
+    }
+    
+    public String sayHello(){
+        return "Hello hi...";
+    }
+    
+    
+}
+
+
+class Main{
+    
+    public static void main(String args[]){
+        Test tobj = new Test();
+        System.out.println(tobj.getMessage());
+        tobj.methodOne();
+        tobj.methodTwo();
+        System.out.println(tobj.sayHello());
+        
+        
+        
+    }
+    
+    
+    
+}
+
+
+Case 3:
+========
+interface A{
+    public abstract void methodOne();
+}
+
+interface B extends A{
+    public abstract void methodTwo();
+    public abstract void methodOne();
+}
+
+class C implements B{
+    
+    @Override
+    public void methodOne(){
+        System.out.println("we are in the methodOne");
+    }
+    @Override
+    public void methodTwo(){
+        System.out.println("We are in the methodTwo");
+    }
+
+   public static void main(String args[]){
+       B b = new C();
+       b.methodTwo();
+       b.methodOne();
+   }
+
+}
+
+Case 4:
+=======
+interface A{
+    public abstract void methodOne();
+}
+class B{
+    public void methodTwo(){
+        System.out.println("We are in the methodTwo of class B");
+    }
+}
+//multiple inheritance  -> we can achieve by extends and implementing the interfaces
+class C extends B implements A{
+    
+    @Override
+    public void methodOne(){
+        System.out.println("we are in methodOne C implementation class");
+    }
+  
+     public static void main(String args[]){
+         C obj = new C();
+         obj.methodTwo();
+         obj.methodOne();
+     }
+}
 
 
