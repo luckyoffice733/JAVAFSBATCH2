@@ -1,0 +1,312 @@
+// You are using Java to store integer --> specific type of data in Collections we need to <T> use Generics.
+import java.util.*;
+class  ExampleOnArrayList{
+    
+    public static void main(String args[]){
+         
+    ArrayList<Integer> alList = new ArrayList<Integer>();
+        
+     // add the elemenets into the ArrayList
+     alList.add(50);
+     alList.add(40);
+     alList.add(10);
+     alList.add(30);
+     alList.add(40);
+     alList.add(60);
+     
+     System.out.println("Number of elemnets stored in arrayList: "+alList.size());
+     
+     
+     System.out.println("Displaying the elements using for-each loop");
+     for(int al:alList){
+         System.out.print(al+" ");
+     }
+     
+     System.out.println();
+     System.out.println("Displaying the elements using for loop");
+     for(int i=0;i<alList.size();i++){
+         System.out.print(alList.get(i)+" ");
+     }
+     
+     System.out.println("Displaying the elements using iterator");
+     
+     Iterator<Integer> iobj=alList.iterator();
+     while(iobj.hasNext()){
+         System.out.print(iobj.next()+" ");
+     }
+     
+     
+     
+     
+     
+        
+    }
+    
+    
+    
+}
+===================
+// You are using Java to store integer --> specific type of data in Collections we need to <T> use Generics.
+import java.util.*;
+class  ExampleOnArrayList{
+    
+    public static void main(String args[]){
+         
+    ArrayList<Integer> alList = new ArrayList<Integer>();
+        
+     // add the elemenets into the ArrayList
+     alList.add(50);
+     alList.add(40);
+     alList.add(10);
+     alList.add(30);
+     alList.add(40);
+     alList.add(60);
+     
+     System.out.println("Number of elemnets stored in arrayList: "+alList.size());
+     
+     System.out.println("get the element at specific position: "+alList.get(3));
+     
+     System.out.println("search an element in the list");
+     boolean b = alList.contains(10);
+     if(b){
+      System.out.println("elements exists");   
+     }else{
+         System.out.println("element not exist");
+     }
+     System.out.println("Displaying direct object");
+     System.out.println(alList);        
+       
+       
+    System.out.println("insert an element at specific position");
+    alList.add(2,100);
+    System.out.println("After insert:");
+    System.out.println(alList);
+    //[50, 40, 100, 10, 30, 40, 60]
+    alList.remove(4);
+    System.out.println("After remove: ");
+    System.out.println(alList);
+    
+
+    
+   
+    }
+    
+    
+    
+}
+
+// You are using Java
+import java.util.*;
+class Employee{
+    private String employeeName;
+    private int employeeId;
+    private String employeeDepartment;
+    
+    Employee(String employeeName,int employeeId,String employeeDepartment){
+        this.employeeName=employeeName;
+        this.employeeId=employeeId;
+        this.employeeDepartment=employeeDepartment;
+    }
+     
+    public String getEmployeeName(){
+        return this.employeeName;
+    } 
+    public int getEmployeeId(){
+        return this.employeeId;
+    }
+    
+    public String getEmployeeDepartment(){
+        return this.employeeDepartment;
+    }
+
+  public String toString(){
+      return "Employee [employeeName="+employeeName+", employeeId="+employeeId+", employeeDepartment="+employeeDepartment+"]";
+  }
+
+}
+class Main{
+    
+    public static void main(String args[]){
+     Scanner sc = new Scanner(System.in);
+     List<Employee> alist = new ArrayList<>();
+     
+     int noOfElements = Integer.parseInt(sc.nextLine());
+     
+     for(int i=0;i<noOfElements;i++){
+         String ename=sc.nextLine();
+         int eid = Integer.parseInt(sc.nextLine());
+         String edpt= sc.nextLine();
+         
+         Employee eobj = new Employee(ename,eid,edpt);
+         alist.add(eobj);
+         }
+           
+      System.out.println("List of All Employees");
+      for(Employee e:alist){
+          System.out.println(e);
+      }
+        
+    }
+
+}
+
+=======================================================
+Comparable:
+===========
+import java.util.*;
+class Employee implements Comparable<Employee>{
+    private String employeeName;
+    private int employeeId;
+    private double empSal;
+    
+    Employee(String employeeName,int employeeId,double empSal){
+        this.employeeName=employeeName;
+        this.employeeId=employeeId;
+        this.empSal=empSal;
+    }
+     
+    public String getEmployeeName(){
+        return this.employeeName;
+    } 
+    public int getEmployeeId(){
+        return this.employeeId;
+    }
+    
+    public double getEmpSal(){
+        return this.empSal;
+    }
+    
+    public int compareTo(Employee other){
+        if(this.empSal > other.empSal){
+             return 1;
+        }else if(this.empSal < other.empSal){
+             return -1;
+        }else{
+             return 0;
+         }
+        
+        //return this.empSal-other.empSal;
+    }
+    
+
+      @Override
+     public String toString(){
+      return "Employee [employeeName="+employeeName+", employeeId="+employeeId+", employeeSal="+empSal+"]";
+  }
+}
+
+class Main{
+    
+    public static void main(String args[]){  //                  //  
+        
+        Employee e1 = new Employee("smith",1212,6000);
+        Employee e2 = new Employee("Blake",3121,5000);
+        Employee e3 = new Employee("Martin",3421,20000);
+        
+         //<> --Generics
+       TreeSet<Employee> ts = new TreeSet();
+       
+       ts.add(e1);
+       ts.add(e2);
+       ts.add(e3);
+       
+      System.out.println("Employee Records in sorted order based on empSal");
+      for(Employee eobj : ts){
+          System.out.println(eobj);
+      }
+        
+        
+    }
+    
+}
+=======================
+Comparator
+===========
+import java.util.*;
+class Employee {
+    private String employeeName;
+    private int employeeId;
+    private double empSal;
+    
+    Employee(String employeeName,int employeeId,double empSal){
+        this.employeeName=employeeName;
+        this.employeeId=employeeId;
+        this.empSal=empSal;
+    }
+     
+    public String getEmployeeName(){
+        return this.employeeName;
+    } 
+    public int getEmployeeId(){
+        return this.employeeId;
+    }
+    
+    public double getEmpSal(){
+        return this.empSal;
+    }
+    
+      @Override
+     public String toString(){
+      return "Employee [employeeName="+employeeName+", employeeId="+employeeId+", employeeSal="+empSal+"]";
+  }
+}
+
+
+ class MyComparator implements Comparator<Employee>{
+     
+     public int compare(Employee et1 ,Employee et2){
+         if(et1.getEmpSal() > et2.getEmpSal()){
+             return 1;
+         }else if(et1.getEmpSal() < et2.getEmpSal()){
+              return -1;
+         }else{
+             return 0;
+         }
+     }
+ }
+
+
+
+
+class Main{
+    
+    public static void main(String args[]){  //                  //  
+        
+        Employee e1 = new Employee("smith",1212,6000);
+        Employee e2 = new Employee("Blake",3121,5000);
+        Employee e3 = new Employee("Martin",3421,20000);
+        //creaeting obejct for Comparator implementation class
+        MyComparator myCompt = new MyComparator();
+        
+         //<> --Generics
+       TreeSet<Employee> ts = new TreeSet(myCompt);
+       
+       ts.add(e1);
+       ts.add(e2);
+       ts.add(e3);
+       
+      System.out.println("Employee Records in sorted order based on empSal");
+      for(Employee eobj : ts){
+          System.out.println(eobj);
+      }
+        
+        
+    }
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
